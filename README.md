@@ -54,7 +54,7 @@ for item in instances['Reservations']:
 ~~~
 
 Output:
-![image](https://user-images.githubusercontent.com/100773863/169550598-de47403f-6e34-4f15-97bf-ab1f94fd9778.png)
+![image](https://user-images.githubusercontent.com/100773863/169555725-6d905a0a-85f0-4141-b9c0-5d7c063b3080.png)
 
 ## Step 3: Code for stopping instance
 
@@ -89,7 +89,7 @@ for instance in instances['Reservations']:
 ~~~
 
 Output:
-![image](https://user-images.githubusercontent.com/100773863/169550792-c6934c15-53e0-4b13-b4e6-9f6dcb8896c4.png)
+![image](https://user-images.githubusercontent.com/100773863/169555885-1ebb5c06-aca5-49c0-8fd0-16469a834878.png)
 
 
 ## Step 4: Create LAMBDA function

@@ -1,4 +1,4 @@
-# LAMBDA-function-with-python
+# lambda-function-with-python
 
 In this article am creating a LAMBDA function stop a development instance. Generally the devlepers after their work, they will set the development server as ON, which needs to be minimised, so am writing this article to stop an development servers using LAMBDA function with help of python after working hours.
 
@@ -42,7 +42,8 @@ ec2 = boto3.client("ec2",
              region_name=REGION)
 
 instances = ec2.describe_instances(Filters=[ {'Name':'tag:project', 'Values':["zomato"]},
-                                             {'Name':'tag:env', 'Values':["dev"]}
+                                             {'Name':'tag:env', 'Values':["dev"]},
+                                             {'Name': 'tag:State','Values': ['running']}
                                            ])
                                             
 for item in instances['Reservations']:
@@ -73,7 +74,8 @@ ec2 = boto3.client('ec2',
              region_name=REGION)
 
 instances = ec2.describe_instances(Filters=[ {'Name':'tag:project', 'Values':["zomato"]},
-                                             {'Name':'tag:env', 'Values':["dev"]}
+                                             {'Name':'tag:env', 'Values':["dev"]},
+                                             {'Name': 'tag:State','Values': ['running']}
                                            ])
 
                                             
@@ -107,7 +109,8 @@ def lambda_handler(event, context):
   
   instances = ec2.describe_instances(Filters=[  
                                               {'Name':'tag:project', 'Values':["zomato"]},
-                                              {'Name':'tag:env', 'Values':["dev"]}
+                                              {'Name':'tag:env', 'Values':["dev"]},
+                                              {'Name': 'tag:State','Values': ['running']}
                                              ])
 
   for item in instances['Reservations']:

@@ -110,7 +110,7 @@ def lambda_handler(event, context):
   instances = ec2.describe_instances(Filters=[  
                                               {'Name':'tag:project', 'Values':["zomato"]},
                                               {'Name':'tag:env', 'Values':["dev"]},
-                                              {'Name': 'tag:State','Values': ['running']}
+                                              {'Name':'instance-state-name', 'Values':['running']}
                                              ])
 
   for item in instances['Reservations']:

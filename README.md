@@ -43,7 +43,7 @@ ec2 = boto3.client("ec2",
 
 instances = ec2.describe_instances(Filters=[ {'Name':'tag:project', 'Values':["zomato"]},
                                              {'Name':'tag:env', 'Values':["dev"]},
-                                             {'Name': 'tag:State','Values': ['running']}
+                                             {'Name':'instance-state-name', 'Values':['running']}
                                            ])
                                             
 for item in instances['Reservations']:
@@ -54,7 +54,7 @@ for item in instances['Reservations']:
 ~~~
 
 Output:
-![image](https://user-images.githubusercontent.com/100773863/169555725-6d905a0a-85f0-4141-b9c0-5d7c063b3080.png)
+![image](https://user-images.githubusercontent.com/100773863/169561867-f16a64fd-22c7-4aeb-a201-0906cf374b94.png)
 
 ## Step 3: Code for stopping instance
 
@@ -75,7 +75,7 @@ ec2 = boto3.client('ec2',
 
 instances = ec2.describe_instances(Filters=[ {'Name':'tag:project', 'Values':["zomato"]},
                                              {'Name':'tag:env', 'Values':["dev"]},
-                                             {'Name': 'tag:State','Values': ['running']}
+                                             {'Name':'instance-state-name', 'Values':['running']}
                                            ])
 
                                             
@@ -89,7 +89,7 @@ for instance in instances['Reservations']:
 ~~~
 
 Output:
-![image](https://user-images.githubusercontent.com/100773863/169555885-1ebb5c06-aca5-49c0-8fd0-16469a834878.png)
+![image](https://user-images.githubusercontent.com/100773863/169562077-bd9016bb-f0d6-4e69-bbd5-b1a0d3c65aca.png)
 
 
 ## Step 4: Create LAMBDA function
